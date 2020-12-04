@@ -40,11 +40,15 @@ if(isset($_POST["breads"]))
 		}
 		
 		$f = (int)($bd/2);
+		$totQty = $maxQty + $minQty;
 		if($bd >= 2)
 		{
 				if($maxQty <= $f){
-					$maxQty = $maxQty;
-					$minQty = $f - $maxQty;
+					$maxQty = $maxQty; 
+					if($f>=$totQty)
+						$minQty = $minQty;
+					else
+						$minQty = $f - $maxQty;
 				}
 				else{
 					$maxQty = $f;
